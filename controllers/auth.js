@@ -78,28 +78,30 @@ exports.register = (req, res)=>{
 
     const [ret, warn] = passwordValidation(senha)
     if(!ret){
-        return res.render('register', {
+        res.render('register', {
             message: warn
         })
+        return res.status(400);
     }
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, data)=>{
         if (error) throw error;
         
         if (data.length > 0){
-            return res.render('register', {
+            res.render('register', {
                 message: 'email já está em uso'
             })
+            return res.status(409);
         }
             
         let hashedPassword = await bcrypt.hash(senha, 10)
 
         db.query('INSERT INTO users SET ?', {name: nome, email: email, password: hashedPassword}, (err, data2)=>{
             if (err){ 
-                console.log(err);
-                return res.render('register', {
+                res.render('register', {
                     message: 'erro: '+err
                 })
+                return res.status(500);
             }
             else{
                 const id = data2.insertId
@@ -152,22 +154,24 @@ exports.productCreate = (req, res)=>{
     const { nome, price } = req.body 
     
     if (nome.length <= 0 ){
-        return res.render('products', {
+        res.render('products', {
             message: 'Precisa colocar um nome'
         })
+        return res.status(400); 
     } else if (price <= 0 ){
-        return res.render('products', {
+        res.render('products', {
             message: 'precisa-se colocar um preço maior que 0'
         })
+        return res.status(400); 
     }
 
     const order = `INSERT INTO products (name, price) VALUES ('${nome}', ${price})`
     db.query(order, (err, data)=>{
         if (err){ 
-            console.log(err);
-            return res.render('products', {
+            res.render('products', {
                 message: 'erro: '+err
             })
+            return res.status(500);
         }
         else{
 
@@ -182,9 +186,9 @@ exports.removeProduct = (req, res)=>{
 
     db.query(order, (err, data)=>{
         if (err) throw err;
+        
+        return res.redirect('/productList');
     })
-
-    return res.redirect('/productList');
 }
 exports.setUpdate = (req, res)=>{
     let id = req.params.id

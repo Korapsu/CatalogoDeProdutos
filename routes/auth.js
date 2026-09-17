@@ -16,7 +16,7 @@ function authenticateToken(req, res, next) {
 
     if (!token) {
         return res.status(401).json({
-            message: "No token provided"
+            message: "Precisa logar antes"
         });
     }
 
@@ -28,7 +28,7 @@ function authenticateToken(req, res, next) {
         next();
     } catch (error) {
         return res.status(403).json({
-            message: `Invalid or expired token: '${error}'`
+            message: `Login invalido ou inexistente: '${error}'`
         });
     }
 }
