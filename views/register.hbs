@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+     content="ie=edge">
+    <title>Registrar-se</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        {{#if message}}
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+        <h1>Registrar-se</h1>
+        <form action="/auth/register" method="post">
+            <div>    
+                <input type="text" name="nome" id="firstname-input" placeholder="Primeiro nome" required>
+            </div>
+            <div>    
+                <input type="email" name="email" id="email-input" placeholder="Email" required>
+            </div>
+            <div>    
+                <input type="password" name="senha" id="password-input" placeholder="Senha" required>
+            </div>
+            <button type="submit">Registrar-se</button>
+            <p>A senha precisa ter:</p>
+            <ul>
+                <li>uma letra em maiusculo</li>
+                <li>uma letra em minusculo</li>
+                <li>um numero</li>
+                <li>Entre 8 a 25 caracteres</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

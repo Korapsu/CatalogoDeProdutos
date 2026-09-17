@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+     content="ie=edge">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/product.css">
+</head>
+<body>
+    <nav>
+        <a href="/CreateProducts">Criar produto</a>
+        {{#if message}}
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+        <form action="/auth/productList" method="post">
+            <input type="text" name="nome" id="name-input" placeholder="Nome">
+            <input type="number" step="0.01" name="price" id="price-input" placeholder="Preço">
+            <input type="number" name="limit" id="limit-input" placeholder="itens por pagina" class="limit">
+            <button type="submit">procurar</button>
+            <input type="number" name="page" id="page-input" value={{pagina}} class="page">
+        </form>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            {{#each produtos}}
+            <div class="col">
+                <div class="card">
+                    <div class="textos">
+                        <p>{{name}}</p>
+                        <p>{{price}}$</p>
+                    </div>
+                    <a href="/update/{{id}}" class="btn btn-warning">alterar</a>
+                    <a href="/remove/{{id}}" class="btn btn-danger">remover</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+</html>

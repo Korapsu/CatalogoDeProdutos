@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+     content="ie=edge">
+    <title>Produtos - editar</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        {{#if message}}
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+        <a href="/productList" class="btn">Cancelar</a>
+        <h1>Alterar um produto</h1>
+        <form action="/auth/update" method="post">
+            <input type="text" hidden name="id" id="id-hidden" value={{produto.id}}>
+            <input type="text" name="nome" id="name-input" value='{{produto.name}}'>
+            <input type="number" step="0.01" name="price" id="price-input" value={{produto.price}}>
+            <button type="submit">atualizar o produto</button>
+        </div>
+    </div>
+</body>
+</html>

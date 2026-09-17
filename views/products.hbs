@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+     content="ie=edge">
+    <title>Produtos - criar</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body> 
+    <div class="wrapper">
+        {{#if message}}
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+        <h1>Cadastrar um produto</h1>
+        <p>precisa estar logado para fazer essa ação</p>
+        <form action="/auth/products" method="post">
+            <div>    
+                <input type="text" name="nome" id="name-input" placeholder="Nome" required>
+            </div>
+            <div>    
+                <input type="number" step="0.01" name="price" id="price-input" placeholder="Preço" required>
+            </div>
+            <button type="submit">criar produto</button>
+        </div>
+    </div>
+</body>
+</html>

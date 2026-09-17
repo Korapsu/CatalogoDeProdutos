@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+     content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        {{#if message}}
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+        <h1>Login</h1>
+        <form action="/auth/login" method="post">
+            <div>    
+                <input type="email" name="email" id="email-input" placeholder="Email" required>
+            </div>
+            <div>    
+                <input type="password" name="senha" id="password-input" placeholder="Senha" required>
+            </div>
+            <button type="submit">Logar</button>
+        </div>
+    </div>
+</body>
+</html>

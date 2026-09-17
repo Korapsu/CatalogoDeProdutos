@@ -1,0 +1,113 @@
+:root{
+    --accent-color: #5dd6c0;
+    --base-color: #e3faeb;
+    --input-color: #88f1de;
+    --focus-color: #13d1ae;
+    --text-color: #3fd1b6;
+}
+html{
+    text-align: center;
+}
+body{
+    min-height: 100vh;
+    background-image: url(Background.png);
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+    align-items: center;
+}
+form input{
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid var(--input-color);
+    background-color: var(--input-color);
+    transition: 150ms ease;
+}
+form label{
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    background-color: var(--accent-color);
+    fill: var(--base-color);
+    color: var(--base-color);
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+form input:hover{
+    border-color: var(--accent-color);
+}
+form input:focus{
+    outline: none;
+    background-color: var(--focus-color);
+}
+form button{
+    margin-top: 10px;
+    border-radius: 1000px;
+    padding: 0.85em 4em;
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+form button:hover{
+    border-color: var(--input-color);
+}
+form button:focus{
+    outline: none;
+    background-color: var(--focus-color);
+}
+nav{
+    background-color: var(--base-color);
+    padding: 10px 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+nav a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+}
+nav a:hover{
+    color: var(--focus-color);
+    text-decoration: underline;
+}
+.card{
+    background-color: var(--base-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 50px;
+    padding: 5px 8px;
+    margin-top: 10px;
+    height: 200px;
+    width: 150px;
+    display: flex;
+    flex-direction:column;
+}
+
+.btn-warning{
+    background-color: var(--text-color);
+    border-radius: 50px;
+}
+.btn-danger{
+    background-color: var(--text-color);
+    border-radius: 50px;
+}
+
+.page{
+    height: 50px;
+    width: 70px;
+}
+.limit{
+    width: 160px;
+}
